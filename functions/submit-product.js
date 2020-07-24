@@ -5,11 +5,14 @@ var base = new Airtable({apiKey:key}).base(baseId);
 const table = base('sighting');
 
 const submitRecord = async (fields) => {
+  console.log('ran in submitRecord');
+  console.log(fields)
     await table.create(fields);
 }
 
 exports.handler = function(event, context, callback) {
-    const {product} = JSON.parse(event.body);
+    const product = JSON.parse(event.body);
+console.log("ran in function")
 console.log(product);
     const newRecord= {
       'Category': product.Category,
