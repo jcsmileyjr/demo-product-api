@@ -10,7 +10,7 @@ const submitRecord = async (fields) => {
 
 exports.handler = function(event, context, callback) {
     const {product} = JSON.parse(event.body);
-
+console.log(product);
     const newRecord= {
       'Category': product.Category,
       'Type': product.Type,
